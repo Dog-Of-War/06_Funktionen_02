@@ -17,16 +17,17 @@ function startApp() {
  // Modul: Operand eingeben | Test:
 ausgabe(getOp());
 function getOp() {
-   let op = prompt("Bitte + | - | * | / eingeben.");
 
-   if (isOpValid(op)) {
-        return op;
-   } else {
-       return "Nix gut!";
-   }   
+    const showStr = "Bitte + | - | * | / eingeben."
+    let op = prompt(showStr);
+
+    // wenn op NICHT gültig ist UND user NICHT auf Abbrechen geklickt hat   
+    while (!isOpValid(op) && (op !== null)) {
+        op = prompt(showStr);
+    }
+
+    return op;
 }
-
-
 
  // Modul: Operand überprüfen | Test:
 //  ausgabe(isOpValid("+"));
