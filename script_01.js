@@ -3,10 +3,32 @@
 /*
 0. a+b / a-b/ a*b / a/b  // ergebnis c
 1. Dateneingabe + -überprüfung 
-2. Auswahl Rechenart : 
+2. Auswahl Rechenart : check!
 3. Fkt. Grundrechenarten : check!
 4. Ausgabe in Konsole : check!
 */
+
+//Vereinbarung : "+","-","*","/"
+ausgabe(rechner(2,2,"+"));
+ausgabe(rechner(2,2,"-"));
+ausgabe(rechner(2,2,"*"));
+ausgabe(rechner(2,2,"/"));
+ausgabe(rechner(2,0,"/"));
+ausgabe(rechner(2,0,"#!"));
+function rechner(a,b,op) {
+    switch (op) {
+        case "+": // Addition
+            return addieren(a,b);
+        case "-": // Subtraktion
+            return subtrahieren(a,b);
+        case "*": // Multiplikation
+            return multiplizieren(a,b);
+        case "/": // Divison
+            return dividieren(a,b);   
+        default:
+            return "Irgendwas ging schief!";
+    }
+}
 
 // Modul: Division a / b |  Test:
 // ausgabe(dividieren(5,5));
