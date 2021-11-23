@@ -8,14 +8,61 @@
 4. Ausgabe in Konsole : check!
 */
 
+// Start der Applikation / App
+// startApp();
+function startApp() {
+    ausgabe(rechner(2,2,getOp()));
+}
+
+ // Modul: Operand eingeben | Test:
+ausgabe(getOp());
+function getOp() {
+   let op = prompt("Bitte + | - | * | / eingeben.");
+
+   if (isOpValid(op)) {
+        return op;
+   } else {
+       return "Nix gut!";
+   }   
+}
+
+
+
+ // Modul: Operand überprüfen | Test:
+//  ausgabe(isOpValid("+"));
+//  ausgabe(isOpValid("-"));
+//  ausgabe(isOpValid("*"));
+//  ausgabe(isOpValid("/"));
+//  ausgabe(isOpValid(""));
+//  ausgabe(isOpValid("#!?"));
+function isOpValid(op) {
+
+    // 1. Variante
+    switch (op) {
+        case "/":
+        case "*":
+        case "-":
+        case "+":
+            return true;
+        default:
+            return false;
+    }
+
+    // 2. Variante
+    // return op == "+" || op == "-" || op == "*" || op == "/";
+
+}
+
+// Modul: Rechenart auswählen | Tests:
 //Vereinbarung : "+","-","*","/"
-ausgabe(rechner(2,2,"+"));
-ausgabe(rechner(2,2,"-"));
-ausgabe(rechner(2,2,"*"));
-ausgabe(rechner(2,2,"/"));
-ausgabe(rechner(2,0,"/"));
-ausgabe(rechner(2,0,"#!"));
+// ausgabe(rechner(2,2,"+"));
+// ausgabe(rechner(2,2,"-"));
+// ausgabe(rechner(2,2,"*"));
+// ausgabe(rechner(2,2,"/"));
+// ausgabe(rechner(2,0,"/"));
+// ausgabe(rechner(2,0,"#!"));
 function rechner(a,b,op) {
+    // a,b --> Operanden / Operatoren: +,- ..
     switch (op) {
         case "+": // Addition
             return addieren(a,b);
@@ -83,6 +130,7 @@ function ausgabe(outputData) {
         console.log(outputData);
     }
 }
+
 
 /*
  Heute bleibt die Küche kalt ...
