@@ -2,28 +2,44 @@
 /*** Rechner */
 /*
 0. a+b / a-b/ a*b / a/b  // ergebnis c
-1. Dateneingabe + -überprüfung 
+1. Dateneingabe + -überprüfung : check!
 2. Auswahl Rechenart : check!
 3. Fkt. Grundrechenarten : check!
 4. Ausgabe in Konsole : check!
 */
 
 // Start der Applikation / App
-// startApp();
+startApp();
 function startApp() {
-    ausgabe(rechner(2,2,getOp()));
+    ausgabe(rechner(getZahl("1"),getZahl("2"),getOp()));
+}
+
+// Modul: Zahl eingeben | Test:
+//ausgabe(getZahl("1"));
+function getZahl(numStr){
+
+    const displayStr = "Bitte Zahl " + numStr + " eingeben:"
+    let ziffer = prompt(displayStr);
+    let zahl = parseInt(ziffer);
+
+    while (isNaN(zahl) && (ziffer !== null)) {
+        ziffer =  prompt(displayStr);
+        zahl = parseInt(ziffer); 
+    }
+
+    return zahl;
 }
 
  // Modul: Operand eingeben | Test:
-ausgabe(getOp());
+// ausgabe(getOp());
 function getOp() {
 
-    const showStr = "Bitte + | - | * | / eingeben."
-    let op = prompt(showStr);
+    const displayStr = "Bitte + | - | * | / eingeben."
+    let op = prompt(displayStr);
 
     // wenn op NICHT gültig ist UND user NICHT auf Abbrechen geklickt hat   
     while (!isOpValid(op) && (op !== null)) {
-        op = prompt(showStr);
+        op = prompt(displayStr);
     }
 
     return op;
